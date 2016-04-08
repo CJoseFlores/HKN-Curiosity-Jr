@@ -120,16 +120,16 @@ class Arm:
                 self.__m2.stop()
                 snsr1 = irdist.get_distance2(1)
             self.stoparm()
+        return
 
+    def defaultconfig4(self):
         self.stoparm()
-
-        while(button == 0):
+        while(GPIO.input(self.__button) == 0):
            self.__m1.move(1)
            self.__m2.stop()
            self.__m3.stop()
-
-
-
+        self.stoparm()
+        return
 
     #The code below is the original plan.
     #This function will lunge into position to grab or drop the payload
