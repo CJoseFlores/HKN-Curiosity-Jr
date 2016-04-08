@@ -53,7 +53,7 @@ while(1):
     while(c1 == 0): #Turn the rover right until object is in the camera
         tracks.turnright()
     tracks.stoptracks()
-
+###Center Calibration Fcn, will turn into a method or seperate function later.
     if(c2 > xcenter): #If object is to the left of the camera center
         while(c2 > xcenter): #Turn the rover until the object is centered on the camera frame
             tracks.turnleft()
@@ -62,6 +62,9 @@ while(1):
         while(c2 < xcenter):
             tracks.turnright()
         tracks.stoptracks()
+###End Center Calibration Fcn
+    while(irdist.get_distance2(4)):#
+
 
 
 

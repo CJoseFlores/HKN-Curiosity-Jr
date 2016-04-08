@@ -235,3 +235,16 @@ class RWD_Tracks:
         self.__mR.stop()
         self.__mL.stop()
         return
+
+class Rover:
+    __arm = None
+    __tracks = None
+
+    def __init__(self, arm, tracks):
+        self.__arm = arm
+        self.__tracks = tracks
+        return
+
+    
+
+
