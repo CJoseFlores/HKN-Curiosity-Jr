@@ -36,3 +36,6 @@ m4 = Motor(26,19)
 
 arm1 = Arm(m1,m2,m3,m4)
 
+#arm1.defaultconfig3()
+
+
