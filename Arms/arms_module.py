@@ -53,12 +53,17 @@ class Arm:
     __m2 = None
     __m3 = None
     __m4 = None
+    __button = None
     #Note that Arm() can only take in Motor Objects as parameters
-    def __init__(self, m1, m2, m3, m4):
+    def __init__(self, m1, m2, m3, m4, button):
         self.__m1 = m1
         self.__m2 = m2
         self.__m3 = m3
         self.__m4 = m4
+        self.__button = button
+
+        GPIO.setup(button, GPIO.IN)
+
         return
 
     #This dconfig is based from the original plan.
@@ -102,9 +107,6 @@ class Arm:
     def defaultconfig3(self):
         self.stoparm()
         snsr1 = irdist.get_distance2(1)
-        snsr3 = irdist.get_distance2(3)
-        glitchFinder = 0
-        glitchFinder2 = 0
         if(snsr1 > 8):
             while(snsr1 > 8): #The arm is below default position
                 self.__m1.move(1) #m1 moves up
@@ -119,26 +121,14 @@ class Arm:
                 snsr1 = irdist.get_distance2(1)
             self.stoparm()
 
-        while(glitchFinder < 200 and glitchFinder2 < 200): #This condition moves motor3 down; uses and
-            snsr3 = irdist.get_distance2(3)
-            if(snsr3 > 11):
-                glitchFinder = glitchFinder + 1
-            else:
-                glitchFinder2 = glitchFinder2 + 1
-
-        if(glitchFinder == 200):
-            while(snsr3 > 11):
-                self.stoparm()
-                self.__m3.move(0)
-                snsr3 = irdist.get_distance2(3) #refresh
-
         self.stoparm()
 
-        #else: #The arm is above or at default position
-         #   while(snsr3 < 10):
-          #      self.__m3.move(1)#m1 moves down
-           #     snsr3 = irdist.get_distance2(3)
-            #self.stoparm()
+        while(button == 0):
+           self.__m1.move(1)
+           self.__m2.stop()
+           self.__m3.stop()
+
+
 
 
     #The code below is the original plan.

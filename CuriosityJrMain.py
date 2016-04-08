@@ -13,7 +13,7 @@ import irdist
 from arms_module import *
 sys.path.append("CamTracking/")
 import Tracking
-import cvDistance
+#import cvDistance
 
 GPIO.setmode(GPIO.BCM)#Sets the pin Numbering system to GPIO scheme
 GPIO.setwarnings(False)
@@ -34,8 +34,10 @@ m4 = Motor(26,19)
 #Ltrackm = Motor(x,w)     Set the pins for the Left Track later
 #Rtrackm = Motor(y,z)     Same for the Right Track
 
-arm1 = Arm(m1,m2,m3,m4)
+arm1 = Arm(m1,m2,m3,m4,25)
+
 
 #arm1.defaultconfig3()
+
 
 
