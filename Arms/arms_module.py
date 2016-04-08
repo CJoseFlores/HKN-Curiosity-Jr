@@ -197,3 +197,41 @@ class Arm:
         self.__m3.stop()
         self.__m4.stop()
         return
+
+class RWD_Tracks:
+    __mR = None
+    __mL = None
+
+    def __init__(self, mR, mL):
+        self.__mR = mR
+        self.__mL = mL
+        return
+
+    def forward(self):
+        self.stoptracks()
+        self.__mR.move(1)#Both Motors move up
+        self.__mL.move(1)
+        return
+
+    def turnright(self):
+        self.stoptracks()
+        self.__mR.move(0)
+        self.__mR.move(1)
+        return
+
+    def turnleft(self):
+        self.stoptracks()
+        self.__mR.move(1)
+        self.__mL.move(0)
+        return
+
+    def reverse(self):
+        self.stoptracks()
+        self.__mR.move(0)#Both Motors move down
+        self.__mL.move(0)
+        return
+
+    def stoptracks(self):
+        self.__mR.stop()
+        self.__mL.stop()
+        return

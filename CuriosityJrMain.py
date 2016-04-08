@@ -18,7 +18,8 @@ import Tracking
 GPIO.setmode(GPIO.BCM)#Sets the pin Numbering system to GPIO scheme
 GPIO.setwarnings(False)
 
-U = 1 #Enums for Controlling the Motors
+#Enums for Controlling the Motors
+U = 1
 D = 0
 R = U
 L = D
@@ -30,14 +31,44 @@ m3 = Motor(16,12)
 m4 = Motor(26,19)
 #DOWN is close, UP is open
 #m1-m4 are motors for the arm
-
-#Ltrackm = Motor(x,w)     Set the pins for the Left Track later
-#Rtrackm = Motor(y,z)     Same for the Right Track
+mL = Motor(22,27)     #Left Track
+mR = Motor(17,4)     #Right Track
 
 arm1 = Arm(m1,m2,m3,m4,25)
+tracks = RWD_Tracks(mR,mL)
+
+start = 0 #generic variable that will start the code.
+
+c1 = 0 #generic condition for openCV Camera
+c2 = 0 #""
+c3 = 0 #""
+xcenter = 0 #x-coordinate of the center of the camera
+
+while(start == 0):
+    print("Waiting for the AGSE to tell the rover to begin")
+
+while(1):
+    arm1.defaultconfig4()
+
+    while(c1 == 0): #Turn the rover right until object is in the camera
+        tracks.turnright()
+    tracks.stoptracks()
+
+    if(c2 > xcenter): #If object is to the left of the camera center
+        while(c2 > xcenter): #Turn the rover until the object is centered on the camera frame
+            tracks.turnleft()
+        tracks.stoptracks()
+    else:
+        while(c2 < xcenter):
+            tracks.turnright()
+        tracks.stoptracks()
 
 
-#arm1.defaultconfig3()
+
+
+
+
+
 
 
 
