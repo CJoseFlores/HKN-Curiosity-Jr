@@ -1,5 +1,5 @@
 
-class Sum:
+class Sum2:
     __x = None
     __y = None
 
