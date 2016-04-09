@@ -35,7 +35,7 @@ else:
     camera = cv2.VideoCapture(args["video"])
 
 
-def Track(lowerboundary, upperboundary):
+def track(lowerboundary, upperboundary):
 
     cvcondition = None
 

@@ -263,12 +263,27 @@ class Rover:
         return
 
     def seek(self, color):
-        if(color == 0):
-            return
-        if(color == 1):
-            return
-        if(color == 2):
-            return
+        cvcondition = None
+        if(color == 0):#blue
+            cvcondition = Tracking.track(bluerange[0], bluerange[1])
+            while (cvcondition == 0):
+                self.__tracks.turnright()
+                cvcondition = Tracking.track(bluerange[0], bluerange[1])
+            self.__tracks.stoptracks()
+
+        elif(color == 1):#green
+            cvcondition = Tracking.track(greenrange[0], greenrange[1])
+            while (cvcondition == 0):
+                self.__tracks.turnright()
+                cvcondition = Tracking.track(greenrange[0], greenrange[1])
+            self.__tracks.stoptracks()
+
+        elif(color == 2):#red
+            cvcondition = Tracking.track(redrange[0], redrange[1])
+            while (cvcondition == 0):
+                self.__tracks.turnright()
+                cvcondition = Tracking.track(redrange[0], redrange[1])
+            self.__tracks.stoptracks()
         return
 
     def center(self):
