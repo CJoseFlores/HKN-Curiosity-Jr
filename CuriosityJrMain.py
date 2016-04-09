@@ -53,8 +53,9 @@ c2 = 0 #""
 c3 = 0 #""
 xcenter = 0 #x-coordinate of the center of the camera
 
+jr = Rover(arm1,tracks)
 
-
+Rover.navigate(500,1)
 #below is experimental code that will execute.
 '''
 while(start == 0):
