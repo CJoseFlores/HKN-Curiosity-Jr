@@ -239,11 +239,18 @@ class RWD_Tracks:
 class Rover:
     __arm = None
     __tracks = None
+    __bluerange = ((110, 50, 100),(130, 255, 255)) #lower, upper color boundaries, in RGB
+    __greenrange = ((0,170,43),(17,255,77)) #dark green to light green
+    __redrange = ((191, 0, 0),(255, 132, 9))#dark red to light orange
 
     def __init__(self, arm, tracks):
         self.__arm = arm
         self.__tracks = tracks
+        self.__arm.defaultconfig4()
+        self.__arm.claw(1) #will force the claw open
         return
+
+    def Seek(self):
 
 
 

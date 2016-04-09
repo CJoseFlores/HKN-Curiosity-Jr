@@ -44,8 +44,14 @@ c2 = 0 #""
 c3 = 0 #""
 xcenter = 0 #x-coordinate of the center of the camera
 
+
+
+#below is experimental code that will execute.
+'''
 while(start == 0):
     print("Waiting for the AGSE to tell the rover to begin")
+
+
 
 while(1):
     arm1.defaultconfig4()
@@ -64,7 +70,7 @@ while(1):
         tracks.stoptracks()
 ###End Center Calibration Fcn
     while(irdist.get_distance2(4)):#
-
+'''
 
 
 
