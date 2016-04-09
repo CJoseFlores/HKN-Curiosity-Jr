@@ -51,12 +51,12 @@ def track(lowerboundary, upperboundary):
     # if we are viewing a video and we did not grab a frame,
     # then we have reached the end of the video
     if args.get("video") and not grabbed:
-        break
+        return 0
 
     #if we are viewing a video and we did not grab a frame,
     # then we have reached the end of the video
     if args.get("video") and not grabbed:
-        break
+        return 0
 
     # resize the frame, blur it, and convert it to the HSV
     # color space
