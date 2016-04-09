@@ -35,13 +35,13 @@ baydist = 25252 #change this value after testing
 
 #Motor(UpPin,DownPin). Below initializes motor objects
 m1 = Motor(21,20)
-m2 = Motor(13,6)
-m3 = Motor(16,12)
-m4 = Motor(26,19)
+m2 = Motor(16,12)#
+m3 = Motor(26,19)
+m4 = Motor(13,6)
 #DOWN is close, UP is open
 #m1-m4 are motors for the arm
 mL = Motor(22,27)     #Left Track
-mR = Motor(17,4)     #Right Track
+mR = Motor(23,24)     #Right Track
 
 arm1 = Arm(m1,m2,m3,m4,25)
 tracks = RWD_Tracks(mR,mL)

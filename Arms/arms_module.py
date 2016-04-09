@@ -239,9 +239,9 @@ class RWD_Tracks:
 class Rover:
     __arm = None
     __tracks = None
-    __bluerange = ((110, 50, 100),(130, 255, 255)) #lower, upper color boundaries, in RGB
-    __greenrange = ((0,170,43),(17,255,77)) #dark green to light green
-    __redrange = ((191, 0, 0),(255, 132, 9))#dark red to light orange
+    __bluerange = (np.array([110, 50, 100]),np.array([130, 255, 255])) #lower, upper color boundaries, in RGB
+    __greenrange = (np.array([0,170,43]),np.array([17,255,77])) #dark green to light green
+    __redrange = (np.array([191, 0, 0]),np.array([255, 132, 9]))#dark red to light orange
 
     def __init__(self, arm, tracks):
         self.__arm = arm
@@ -342,7 +342,7 @@ class Rover:
         self.__tracks.stoptracks()
         return
 
-    def back(self):#possibly not use this? 
+    def back(self):#possibly not use this?
         self.__reverse()
         return
 
