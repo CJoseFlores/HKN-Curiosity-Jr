@@ -161,7 +161,7 @@ class Arm:
                 stopflag = 1
         return
 
-    def lunge3(self):
+    def lunge3(self): #REMEBER TO MODIFY THE SNSR2 < 4 CONDITION IT WILL NO LONGER BE THIS LOW!!!
         self.stoparm()
         snsr2 = irdist.get_distance2(2)
         self.__m3.tmove(1,1)
