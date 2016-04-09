@@ -331,25 +331,25 @@ class Rover:
                 self.__tracks.stoptracks()
         return
 
-    def fwd(self, dist, centercnt, color):
+    def fwd(self, dist, color):
         glitchfilter = 0
         #While the payload has not yet been detected
         while(glitchfilter < 6):
             self.__tracks.forward()
-            if(centercnt == 5):
-                self.__center(color)
+            self.__center(color)
             if(irdist.get_distance2(4) < dist):
                 glitchfilter += 1
         self.__tracks.stoptracks()
         return
 
-    def back(self):
+    def back(self):#possibly not use this? 
+        self.__reverse()
         return
 
-    def navigate(self, dist, centercnt, color):
+    def navigate(self, dist, color):
         self.__seek(color)
         self.__center(color)
-        self.__fwd(dist, centercnt, color)
+        self.__fwd(dist, color)
         return
 
 
