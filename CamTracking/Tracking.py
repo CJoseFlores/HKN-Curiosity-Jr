@@ -23,8 +23,6 @@ args = vars(ap.parse_args())
 # define the lower and upper boundaries of the "green"
 # ball in the HSV color space, then initialize the
 # list of tracked points
-blueLower = (110, 50, 100)
-blueUpper = (130, 255, 255)
 pts = deque(maxlen=args["buffer"])
 
 # if a video path was not supplied, grab the reference
@@ -37,8 +35,10 @@ else:
     camera = cv2.VideoCapture(args["video"])
 
 
-def Track():
+def Track(lowerboundary, upperboundary):
+
     cvcondition = None
+
     #This variable will be used to tell if either:
     #Any object is in the frame,
     #if the object is too far left from the center
@@ -67,7 +67,7 @@ def Track():
     # construct a mask for the color "blue", then perform
     # a series of dilations and erosions to remove any small
     # blobs left in the mask
-    mask = cv2.inRange(hsv, blueLower, blueUpper)
+    mask = cv2.inRange(hsv, lowerboundary, upperboundary)
     mask = cv2.erode(mask, None, iterations=2)
     mask = cv2.dilate(mask, None, iterations=2)
 
@@ -116,12 +116,14 @@ def Track():
     # print not centered otherwise it is
     if currentX < leftThres:
         print("Object is too far left!")
+        cvcondition = 1
 
     elif currentX > rightThres:
         print("Object is too far right!")
+        cvcondition = 3
     elif currentX > leftThres and currentX < rightThres:
         print("Object is centered!")
-
+        cvcondition = 2
 
     # show the frame to our screen
     cv2.imshow("Frame", frame)
@@ -149,10 +151,4 @@ def Track():
         break
     """""
 
-
-
-
-
-
-if __name__ == "__main__":
-    run_main()
+    return cvcondition
