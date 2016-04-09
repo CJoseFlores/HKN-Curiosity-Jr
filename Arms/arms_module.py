@@ -286,7 +286,13 @@ class Rover:
             self.__tracks.stoptracks()
         return
 
-    def center(self):
+    def center(self, color):
+        cvcondition = None
+        if(color == 0):#blue
+            return
+        if(color == 1):#green
+            return
+        if(color == 2):#red
         return
 
     def fwd(self):
