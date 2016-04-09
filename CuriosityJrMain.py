@@ -29,6 +29,10 @@ blue = 0
 green = 1
 red = 2
 
+#Enums for fwd()
+payloaddist = 25252 #change this value after testing
+baydist = 25252 #change this value after testing
+
 #Motor(UpPin,DownPin). Below initializes motor objects
 m1 = Motor(21,20)
 m2 = Motor(13,6)

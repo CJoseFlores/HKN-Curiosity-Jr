@@ -171,7 +171,7 @@ class Arm:
             self.__m2.stop()
             snsr2 = irdist.get_distance2(2)
             if(snsr2 < 4):
-                glitchfilter = glitchfilter + 1
+                glitchfilter += 1
         self.stoparm()
 
     #This function grabs or releases the payload. "action" means either grab or release
@@ -331,7 +331,15 @@ class Rover:
                 self.__tracks.stoptracks()
         return
 
-    def fwd(self):
+    def fwd(self, dist, centercnt, color):
+        glitchfilter = 0
+        #While the payload has not yet been detected
+        while(glitchfilter < 6):
+            self.__tracks.forward()
+            if(centercnt == 5):
+                self.__center(color)
+            if(irdist.get_distance2(4) < dist):
+                glitchfilter += 1
         return
 
     def back(self):
