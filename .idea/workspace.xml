@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4251b47-8e25-4d5c-8c4c-aa9511d40986" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arms/arms_module.py" afterPath="$PROJECT_DIR$/Arms/arms_module.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CamTracking/Tracking.py" afterPath="$PROJECT_DIR$/CamTracking/Tracking.py" />
     </list>
     <ignored path="HKN-ASME-Curiosity-Jr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,21 +43,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tracking.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tracking.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CamTracking/Tracking.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.88691795">
+              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CuriosityJrMain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CuriosityJrMain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CuriosityJrMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3968958">
-              <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -73,9 +73,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CamTracking/Tracking.py" />
         <option value="$PROJECT_DIR$/CuriosityJrMain.py" />
         <option value="$PROJECT_DIR$/Arms/arms_module.py" />
+        <option value="$PROJECT_DIR$/CamTracking/Tracking.py" />
       </list>
     </option>
   </component>
@@ -241,28 +241,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CamTracking/Tracking.py">
+    <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="16" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.036796536">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CuriosityJrMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3968958">
-          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
+    <entry file="file://$PROJECT_DIR$/CamTracking/Tracking.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036796536">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.88691795">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -156,10 +156,3 @@ def track(lowerboundary, upperboundary):
     """""
 
     return cvcondition
-
-lower = np.array([110, 50, 100])
-up = np.array([130, 255, 255])
-
-while True:
-    restult = track(lower, up)
-    print(restult)
