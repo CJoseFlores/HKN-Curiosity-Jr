@@ -266,27 +266,22 @@ class Rover:
         return
 
     def seek(self, color):
-        cvcondition = None
-        if(color == 0):#blue
-            cvcondition = Tracking.track(bluerange[0], bluerange[1])
-            while (cvcondition == 0):
-                self.__tracks.turnright()
-                cvcondition = Tracking.track(bluerange[0], bluerange[1])
-            self.__tracks.stoptracks()
+        '''
+            This method seeks a payload with an specific color. It moves the rover
+                until it finds the payload.
+        :param color: color = {1,2,3}. Color that we want the system to track.
+            1 - Blue Range
+            2 - Green Range
+            3 - Red Range
+        :return:
+        '''
+        colorSelection = self.__colorList[color]  #choose the color from the list
+        cvcondition = Tracking.track(colorSelection[0], colorSelection[1]) #getting current state of the target in the frame
 
-        elif(color == 1):#green
-            cvcondition = Tracking.track(greenrange[0], greenrange[1])
-            while (cvcondition == 0):
-                self.__tracks.turnright()
-                cvcondition = Tracking.track(greenrange[0], greenrange[1])
-            self.__tracks.stoptracks()
-
-        elif(color == 2):#red
-            cvcondition = Tracking.track(redrange[0], redrange[1])
-            while (cvcondition == 0):
-                self.__tracks.turnright()
-                cvcondition = Tracking.track(redrange[0], redrange[1])
-            self.__tracks.stoptracks()
+        while (cvcondition == 0):
+            self.__tracks.turnright()
+            cvcondition = Tracking.track(colorSelection[0], colorSelection[1])
+        self.__tracks.stoptracks()
         return
 
     def center(self, color):
