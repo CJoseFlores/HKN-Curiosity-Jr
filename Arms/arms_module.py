@@ -340,12 +340,16 @@ class Rover:
                 self.__center(color)
             if(irdist.get_distance2(4) < dist):
                 glitchfilter += 1
+        self.__tracks.stoptracks()
         return
 
     def back(self):
         return
 
-    def navigate(self):
+    def navigate(self, dist, centercnt, color):
+        self.__seek(color)
+        self.__center(color)
+        self.__fwd(dist, centercnt, color)
         return
 
 
