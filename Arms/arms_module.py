@@ -250,7 +250,32 @@ class Rover:
         self.__arm.claw(1) #will force the claw open
         return
 
-    def Seek(self):
+    def default(self):
+        return
+
+    def lunge(self):
+        return
+
+    def claw(self):
+        return
+
+    def seek(self):
+        return
+
+    def center(self):
+        return
+
+    def fwd(self):
+        return
+
+    def back(self):
+        return
+
+    def navigate(self):
+        return
+
+    
+
 
 
 
