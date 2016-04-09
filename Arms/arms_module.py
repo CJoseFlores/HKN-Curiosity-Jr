@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 import RPi.GPIO as GPIO
+import numpy as np
 import time
 import mcp3008
 import irdist
