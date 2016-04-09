@@ -243,7 +243,7 @@ class Rover:
     __greenrange = (np.array([0,170,43]),np.array([17,255,77])) #dark green to light green
     __redrange = (np.array([191, 0, 0]),np.array([255, 132, 9]))#dark red to light orange
 
-    __colorList = {1:__bluerange,2:__greenrange,3__redrange}
+    __colorList = {1:__bluerange,2:__greenrange,3:__redrange}
 
     def __init__(self, arm, tracks):
         self.__arm = arm

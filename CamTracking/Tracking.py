@@ -114,7 +114,10 @@ def track(lowerboundary, upperboundary):
 
     # if center of object not in center range
     # print not centered otherwise it is
-    print(currentX)
+
+    if currentX == None:
+        return 0
+
     if currentX < leftThres:
         print("Object is too far left!")
         cvcondition = 1
@@ -153,3 +156,10 @@ def track(lowerboundary, upperboundary):
     """""
 
     return cvcondition
+
+lower = np.array([110, 50, 100])
+up = np.array([130, 255, 255])
+
+while True:
+    restult = track(lower, up)
+    print(restult)
