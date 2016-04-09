@@ -18,13 +18,14 @@ L = D
 #InitPin,UpPin,DownPin
 #time.sleep(timeinseconds) -> Same as arduino Delay(timeinms)
 m1 = Motor(21,20)
-m2 = Motor(13,6)
-m3 = Motor(16,12)
-m4 = Motor(26,19)
+m2 = Motor(16,12)
+m3 = Motor(26,19)
+m4 = Motor(13,6)
+
 # DOWN is close
 # UP is open
 
-arm1 = Arm(m1, m2, m3, m4)
+arm1 = Arm(m1, m2, m3, m4, 25)
 #tmove(direction, time in seconds)
 #m1.tmove(U,1.1)
 
@@ -40,6 +41,6 @@ arm1 = Arm(m1, m2, m3, m4)
 #arm1.claw(U)
 #arm1.slowclaw(U)
 
-m1.move(U)
-#Wkasjdkajsdkjaskdj
-m1.stop()
+#Testing the pin that stops the arm.
+m1.tmove(D, 1.5)
+arm1.defaultconfig4()
