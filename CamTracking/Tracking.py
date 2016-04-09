@@ -37,7 +37,13 @@ else:
     camera = cv2.VideoCapture(args["video"])
 
 
-def run_main():
+def Track():
+    cvcondition = None
+    #This variable will be used to tell if either:
+    #Any object is in the frame,
+    #if the object is too far left from the center
+    #if the object is too far right from the center
+
 
     # grab the current frane
     (grabbed, frame) = camera.read()
@@ -109,21 +115,23 @@ def run_main():
     # if center of object not in center range
     # print not centered otherwise it is
     if currentX < leftThres:
-        print 'Object is too far left!'
+        print("Object is too far left!")
+
     elif currentX > rightThres:
-        print 'Object is too far right!'
+        print("Object is too far right!")
     elif currentX > leftThres and currentX < rightThres:
-        print 'Object is centered!'
+        print("Object is centered!")
 
 
     # show the frame to our screen
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
 
+    '''
     #if the 'q' key is pressed, stop the loop
     if key == ord("q"):
         break
-
+    '''
     """"
     waitstate = None
     while key == ord("q"):
@@ -140,6 +148,7 @@ def run_main():
         print 'resuming'
         break
     """""
+
 
 
 

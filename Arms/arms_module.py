@@ -274,7 +274,7 @@ class Rover:
     def navigate(self):
         return
 
-    
+
 
 
 
