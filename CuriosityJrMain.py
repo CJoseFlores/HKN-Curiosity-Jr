@@ -24,6 +24,11 @@ D = 0
 R = U
 L = D
 
+#Enums for seek()
+blue = 0
+green = 1
+red = 2
+
 #Motor(UpPin,DownPin). Below initializes motor objects
 m1 = Motor(21,20)
 m2 = Motor(13,6)

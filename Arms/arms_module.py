@@ -251,15 +251,24 @@ class Rover:
         return
 
     def default(self):
+        self.__arm.defaultconfig4()
         return
 
     def lunge(self):
+        self.__arm.lunge3()
         return
 
-    def claw(self):
+    def claw(self, action):
+        self.__arm.claw(action)
         return
 
-    def seek(self):
+    def seek(self, color):
+        if(color == 0):
+            return
+        if(color == 1):
+            return
+        if(color == 2):
+            return
         return
 
     def center(self):
