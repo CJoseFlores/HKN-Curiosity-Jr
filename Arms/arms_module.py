@@ -277,11 +277,13 @@ class Rover:
         '''
         colorSelection = self.__colorList[color]  #choose the color from the list
         cvcondition = Tracking.track(colorSelection[0], colorSelection[1]) #getting current state of the target in the frame
-
+        print("Seeking object")
         while (cvcondition == 0):
             self.__tracks.turnright()
+            print("Moving Right")
             cvcondition = Tracking.track(colorSelection[0], colorSelection[1])
         self.__tracks.stoptracks()
+        print("Found!!!")
         return
 
     def center(self, color):
@@ -297,18 +299,20 @@ class Rover:
         colorSelection = self.__colorList[color]  #choose the color from the list
         cvcondition = Tracking.track(colorSelection[0], colorSelection[1]) #getting current state of the target in the frame
 
+        print("Centering")
         while cvcondition != 2: #is going to be trying to center until it is in the middle
 
             if(cvcondition < 2):#left of center frame
                 self.__tracks.turnleft()
-
+                print("Moving left")
 
             elif(cvcondition > 2):#right of center frame
                 self.__tracks.turnright()
+                print("Moving Right")
 
             self.__tracks.stoptracks()
             cvcondition = Tracking.track(colorSelection[0], colorSelection[1])
-
+        print("CENTERED!!!")
         return
 
     def fwd(self, dist, color):
