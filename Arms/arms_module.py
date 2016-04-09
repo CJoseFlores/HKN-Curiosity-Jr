@@ -243,11 +243,14 @@ class Rover:
     __greenrange = (np.array([0,170,43]),np.array([17,255,77])) #dark green to light green
     __redrange = (np.array([191, 0, 0]),np.array([255, 132, 9]))#dark red to light orange
 
+    __colorList = {1:__bluerange,2:__greenrange,3__redrange}
+
     def __init__(self, arm, tracks):
         self.__arm = arm
         self.__tracks = tracks
         self.__arm.defaultconfig4()
         self.__arm.claw(1) #will force the claw open
+
         return
 
     def default(self):
@@ -287,48 +290,30 @@ class Rover:
         return
 
     def center(self, color):
-        cvcondition = None
-        if(color == 0):#blue
-            cvcondition = Tracking.track(bluerange[0], bluerange[1])
+        '''
+            This method centers the screen to an specific color payload. It moves the rover
+                depending on the position of the payload on the screen.
+        :param color: color = {1,2,3}. Color that we want the system to track.
+            1 - Blue Range
+            2 - Green Range
+            3 - Red Range
+        :return:
+        '''
+        colorSelection = self.__colorList[color]  #choose the color from the list
+        cvcondition = Tracking.track(colorSelection[0], colorSelection[1]) #getting current state of the target in the frame
+
+        while cvcondition != 2: #is going to be trying to center until it is in the middle
+
             if(cvcondition < 2):#left of center frame
-                while(cvcondition < 2):
-                    self.__tracks.turnright()
-                    cvcondition = Tracking.track(bluerange[0], bluerange[1])
-                self.__tracks.stoptracks()
+                self.__tracks.turnleft()
+
 
             elif(cvcondition > 2):#right of center frame
-                while(cvcondition > 2):
-                    self.__tracks.turnleft()
-                    cvcondition = Tracking.track(bluerange[0], bluerange[1])
-                self.__tracks.stoptracks()
+                self.__tracks.turnright()
 
-        elif(color == 1):#green
-            cvcondition = Tracking.track(greenrange[0], greenrange[1])
-            if(cvcondition < 2):#left of center frame
-                while(cvcondition < 2):
-                    self.__tracks.turnright()
-                    cvcondition = Tracking.track(greenrange[0], greenrange[1])
-                self.__tracks.stoptracks()
+            self.__tracks.stoptracks()
+            cvcondition = Tracking.track(colorSelection[0], colorSelection[1])
 
-            elif(cvcondition > 2):#right of center frame
-                while(cvcondition > 2):
-                    self.__tracks.turnleft()
-                    cvcondition = Tracking.track(greenrange[0], greenrange[1])
-                self.__tracks.stoptracks()
-
-        elif(color == 2):#red
-            cvcondition = Tracking.track(redrange[0], redrange[1])
-            if(cvcondition < 2):#left of center frame
-                while(cvcondition < 2):
-                    self.__tracks.turnright()
-                    cvcondition = Tracking.track(redrange[0], redrange[1])
-                self.__tracks.stoptracks()
-
-            elif(cvcondition > 2):#right of center frame
-                while(cvcondition > 2):
-                    self.__tracks.turnleft()
-                    cvcondition = Tracking.track(redrange[0], redrange[1])
-                self.__tracks.stoptracks()
         return
 
     def fwd(self, dist, color):
@@ -344,6 +329,7 @@ class Rover:
 
     def back(self):#possibly not use this?
         self.__reverse()
+
         return
 
     def navigate(self, dist, color):
