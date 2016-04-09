@@ -289,10 +289,46 @@ class Rover:
     def center(self, color):
         cvcondition = None
         if(color == 0):#blue
-            return
-        if(color == 1):#green
-            return
-        if(color == 2):#red
+            cvcondition = Tracking.track(bluerange[0], bluerange[1])
+            if(cvcondition < 2):#left of center frame
+                while(cvcondition < 2):
+                    self.__tracks.turnright()
+                    cvcondition = Tracking.track(bluerange[0], bluerange[1])
+                self.__tracks.stoptracks()
+
+            elif(cvcondition > 2):#right of center frame
+                while(cvcondition > 2):
+                    self.__tracks.turnleft()
+                    cvcondition = Tracking.track(bluerange[0], bluerange[1])
+                self.__tracks.stoptracks()
+
+        elif(color == 1):#green
+            cvcondition = Tracking.track(greenrange[0], greenrange[1])
+            if(cvcondition < 2):#left of center frame
+                while(cvcondition < 2):
+                    self.__tracks.turnright()
+                    cvcondition = Tracking.track(greenrange[0], greenrange[1])
+                self.__tracks.stoptracks()
+
+            elif(cvcondition > 2):#right of center frame
+                while(cvcondition > 2):
+                    self.__tracks.turnleft()
+                    cvcondition = Tracking.track(greenrange[0], greenrange[1])
+                self.__tracks.stoptracks()
+
+        elif(color == 2):#red
+            cvcondition = Tracking.track(redrange[0], redrange[1])
+            if(cvcondition < 2):#left of center frame
+                while(cvcondition < 2):
+                    self.__tracks.turnright()
+                    cvcondition = Tracking.track(redrange[0], redrange[1])
+                self.__tracks.stoptracks()
+
+            elif(cvcondition > 2):#right of center frame
+                while(cvcondition > 2):
+                    self.__tracks.turnleft()
+                    cvcondition = Tracking.track(redrange[0], redrange[1])
+                self.__tracks.stoptracks()
         return
 
     def fwd(self):
