@@ -114,6 +114,7 @@ def track(lowerboundary, upperboundary):
 
     # if center of object not in center range
     # print not centered otherwise it is
+    print(currentX)
     if currentX < leftThres:
         print("Object is too far left!")
         cvcondition = 1
