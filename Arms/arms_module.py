@@ -257,7 +257,7 @@ class Rover:
     def __init__(self, arm, tracks):
         self.__arm = arm
         self.__tracks = tracks
-        #self.__arm.defaultconfig4() REMEMBER TO PUT THIS BACK LATER!
+        self.__arm.defaultconfig4() 
         self.__arm.claw(1) #will force the claw open
 
         return
