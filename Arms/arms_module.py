@@ -163,17 +163,24 @@ class Arm:
                 stopflag = 1
         return
 
-    def lunge3(self): #REMEBER TO MODIFY THE SNSR2 < 4 CONDITION IT WILL NO LONGER BE THIS LOW!!!
+    def lunge3(self, dist): #REMEBER TO MODIFY THE SNSR2 < 4 CONDITION IT WILL NO LONGER BE THIS LOW!!!
         self.stoparm()
-        snsr2 = irdist.get_distance2(2)
-        self.__m3.tmove(1,1)
-        glitchfilter = 0
-        while(glitchfilter < 20):
+        done = False
+        oldValue = irdist.get_distance2(2)
+
+        while not done:
             self.__m1.move(0)
             self.__m2.stop()
-            snsr2 = irdist.get_distance2(2)
-            if(snsr2 < 4):
-                glitchfilter += 1
+
+            value = irdist.get_distance2(2)
+
+            print("new value is {}".format(value))
+            print("old value is {}".format(oldValue))
+            if abs(value - oldValue) < 5:
+                if(value < dist):
+                    done = True
+                oldValue = value
+
         self.stoparm()
 
     #This function grabs or releases the payload. "action" means either grab or release
@@ -259,8 +266,8 @@ class Rover:
         self.__arm.defaultconfig4()
         return
 
-    def lunge(self):
-        self.__arm.lunge3()
+    def lunge(self,dist):
+        self.__arm.lunge3(dist)
         return
 
     def claw(self, action):
@@ -331,7 +338,7 @@ class Rover:
 
             print("new value is {}".format(value))
             print("old value is {}".format(oldValue))
-            
+
             if abs(value - oldValue) < 10:
                 if(value < dist):
                     done = True

@@ -57,6 +57,7 @@ jr = Rover(arm1,tracks)
 
 print("before Rover")
 jr.navigate(5,1)
+jr.lunge(8)
 #below is experimental code that will execute.
 '''
 while(start == 0):
