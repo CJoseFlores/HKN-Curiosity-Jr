@@ -54,22 +54,31 @@ class Servo:
     __spin = None
     __freq = None
     __pwm = None
-    __duty = None
+    __neutral = None
+    __delay = None
 
-    def __init(self, spin, freq):
+    def __init__(self, spin, freq, neutralduty, delay): #default the freq to 50hz
         self.__spin = spin
         self.__freq = freq
+        self.__neutral = neutralduty
+        self.__delay = delay
         GPIO.setup(spin, GPIO.OUT)
         self.__pwm = GPIO.PWM(spin, freq) #pin, frequency in hertz
+        self.__pwm.start(self.__neutral)
         return
 
-    def servoDefault(self, spin, duty):
-        self.__spin = spin
-        GPIO.setup(spin, GPIO.OUT)
-        self.__pwm.start(duty)
+    def servoDefault(self):
+        self.__pwm.ChangeDutyCycle(self.__neutral)
+        time.sleep(self.__delay)
         return
 
-    def servoMove(self, spin):
+    def servoMove(self, position):
+        self.__pwm.ChangeDutyCycle(position)
+        time.sleep(self.__delay)
+        return
+
+    def servoStop(self):
+        self.__pwm.stop()
         return
 
 class Arm:
@@ -79,9 +88,12 @@ class Arm:
     def __init__(self, s1, s2):
         self.__s1 = s1
         self.__s2 = s2
+        self.default()
         return
 
-    def servoDefault(self):
+    def default(self):
+        self.__s1.servoDefault()
+        self.__s2.servoDefault()
         return
 
 '''
