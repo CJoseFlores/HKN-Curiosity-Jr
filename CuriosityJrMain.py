@@ -11,7 +11,7 @@ sys.path.append("Arms/")
 import mcp3008
 import irdist
 from arms_module import *
-sys.path.append("CamTracking/")
+#sys.path.append("CamTracking/")
 import Tracking
 #import cvDistance
 
