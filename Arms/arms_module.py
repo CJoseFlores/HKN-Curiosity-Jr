@@ -88,7 +88,7 @@ class Arm:
     def __init__(self, s1, s2):
         self.__s1 = s1
         self.__s2 = s2
-        self.default()
+        self.defaultpos()
         return
 
     def defaultpos(self):
@@ -100,7 +100,7 @@ class Arm:
         self.__s1.servoMove(252) #change this value later
         return
 
-    def claw(self):
+    def grab(self):
         self.__s2.servoMove(252)#change this value later
         return
 
@@ -154,21 +154,18 @@ class Rover:
     def __init__(self, arm, tracks):
         self.__arm = arm
         self.__tracks = tracks
-        self.__arm.defaultconfig4()
-        self.__arm.claw(1) #will force the claw open
-
         return
 
     def default(self):
-        self.__arm.defaultconfig4()
+        self.__arm.defaultpos()
         return
 
     def lunge(self,dist):
-        self.__arm.lunge3(dist)
+        self.__arm.lungefwd()
         return
 
     def claw(self, action):
-        self.__arm.claw(action)
+        self.__arm.grab(action)
         return
 
     def seek(self, color):
@@ -239,14 +236,13 @@ class Rover:
             if abs(value - oldValue) < 10:
                 if(value < dist):
                     done = True
-                oldValue = value;
+                oldValue = value
 
         self.__tracks.stoptracks()
         return
 
-    def back(self):#possibly not use this?
-        self.reverse()
-
+    def back(self): #Possibly not use this?
+        self.__tracks.reverse()
         return
 
     def navigate(self, dist, color):
