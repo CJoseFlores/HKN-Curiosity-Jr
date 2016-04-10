@@ -126,8 +126,9 @@ class Arm:
 
     def defaultconfig4(self):
         self.stoparm()
+        self.__m1.move(1)
         while(GPIO.input(self.__button) == 0):
-           self.__m1.move(1)
+           pass
            #self.__m2.stop()
            #self.__m3.stop()
         self.stoparm()
@@ -186,7 +187,7 @@ class Arm:
     #This function grabs or releases the payload. "action" means either grab or release
     def claw(self, action):
         self.stoparm()
-        self.__m4.tmove(action,.75)#Moves for .75 seconds
+        self.__m4.tmove(action,.80)#Moves for .75 seconds
         return
 
     def slowclaw(self, action):
@@ -257,7 +258,7 @@ class Rover:
     def __init__(self, arm, tracks):
         self.__arm = arm
         self.__tracks = tracks
-        self.__arm.defaultconfig4() 
+        self.__arm.defaultconfig4()
         self.__arm.claw(1) #will force the claw open
 
         return
