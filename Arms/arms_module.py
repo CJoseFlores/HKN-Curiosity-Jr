@@ -320,12 +320,21 @@ class Rover:
     def fwd(self, dist, color):
         glitchfilter = 0
         #While the payload has not yet been detected
-        while(glitchfilter < 6):
+        done = False
+        oldValue = irdist.get_distance2(4)
+
+        while not done:
             self.__tracks.forward()
             print("moving forward")
             self.center(color)
-            if(irdist.get_distance2(4) < dist):
-                glitchfilter += 1
+            value = irdist.get_distance2(4)
+
+            print(value)
+            if abs(value - oldValue) < 10:
+                if(value < dist):
+                    done = True
+                oldValue = value;
+
         self.__tracks.stoptracks()
         return
 
