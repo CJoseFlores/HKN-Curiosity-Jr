@@ -37,7 +37,7 @@ baydist = 25252 #change this value after testing
 m1 = Motor(21,20)
 m2 = Motor(16,12)#
 m3 = Motor(26,19)
-m4 = Motor(13,6)
+m4 = Motor(6,13)
 #DOWN is close, UP is open
 #m1-m4 are motors for the arm
 mL = Motor(22,27)     #Left Track
@@ -56,7 +56,7 @@ xcenter = 0 #x-coordinate of the center of the camera
 jr = Rover(arm1,tracks)
 
 print("before Rover")
-jr.navigate(9,1)
+jr.navigate(8,1)
 jr.lunge(6)
 #below is experimental code that will execute.
 '''
