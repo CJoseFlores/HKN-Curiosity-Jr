@@ -63,3 +63,10 @@ p.start(7.5)
 while(1):
     p.ChangeDutyCycle(7.5) #Possible Neutral?
     time.sleep(1)
+
+#Try the stuff below:
+while True:
+   GPIO.output(pin, GPIO.HIGH)
+   time.sleep(0.0015)
+   GPIO.output(pin, GPIO.LOW)
+   time.sleep(0.0185)
