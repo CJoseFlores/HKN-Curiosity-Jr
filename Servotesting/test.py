@@ -58,7 +58,7 @@ GPIO.setup(21, GPIO.OUT)
 
 #Neutral at otpimal operation is .0015s, so at 50hz,
 p = GPIO.PWM(21,50)
-p.start(5)
+p.start(7.5)
 
 while(1):
     p.ChangeDutyCycle(7.5) #Possible Neutral?
