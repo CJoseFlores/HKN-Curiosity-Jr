@@ -322,14 +322,15 @@ class Rover:
         #While the payload has not yet been detected
         while(glitchfilter < 6):
             self.__tracks.forward()
-            self.__center(color)
+            print("moving forward")
+            self.center(color)
             if(irdist.get_distance2(4) < dist):
                 glitchfilter += 1
         self.__tracks.stoptracks()
         return
 
     def back(self):#possibly not use this?
-        self.__reverse()
+        self.reverse()
 
         return
 
