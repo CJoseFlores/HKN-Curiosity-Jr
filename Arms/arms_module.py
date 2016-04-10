@@ -50,6 +50,41 @@ class Motor:
         GPIO.output(self.__dpin, GPIO.LOW)
         return
 
+class Servo:
+    __spin = None
+    __freq = None
+    __pwm = None
+    __duty = None
+
+    def __init(self, spin, freq):
+        self.__spin = spin
+        self.__freq = freq
+        GPIO.setup(spin, GPIO.OUT)
+        self.__pwm = GPIO.PWM(spin, freq) #pin, frequency in hertz
+        return
+
+    def servoDefault(self, spin, duty):
+        self.__spin = spin
+        GPIO.setup(spin, GPIO.OUT)
+        self.__pwm.start(duty)
+        return
+
+    def servoMove(self, spin):
+        return
+
+class Arm:
+    __s1 = None  # abstract servos (1 is the lower one)
+    __s2 = None
+
+    def __init__(self, s1, s2):
+        self.__s1 = s1
+        self.__s2 = s2
+        return
+
+    def servoDefault(self):
+        return
+
+'''
 class Arm:
     __m1= None
     __m2 = None
@@ -207,7 +242,7 @@ class Arm:
         self.__m3.stop()
         self.__m4.stop()
         return
-
+'''
 class RWD_Tracks:
     __mR = None
     __mL = None
