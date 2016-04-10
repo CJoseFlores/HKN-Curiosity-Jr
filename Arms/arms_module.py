@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import time
 import mcp3008
 import irdist
+import numpy as np
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -125,9 +126,10 @@ class Arm:
     def defaultconfig4(self):
         self.stoparm()
         while(GPIO.input(self.__button) == 0):
-           self.__m1.move(1)
+           self.__m1.move(1) #move up
            self.__m2.stop()
            self.__m3.stop()
+            print('')
         self.stoparm()
         return
 
