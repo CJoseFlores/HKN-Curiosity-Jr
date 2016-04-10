@@ -4,7 +4,7 @@ import numpy as np
 import time
 import mcp3008
 import irdist
-from Tracking import *
+import Tracking
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)

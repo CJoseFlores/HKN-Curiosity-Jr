@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f4251b47-8e25-4d5c-8c4c-aa9511d40986" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Arms/arms_module.py" afterPath="$PROJECT_DIR$/Arms/arms_module.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CuriosityJrMain.py" afterPath="$PROJECT_DIR$/CuriosityJrMain.py" />
     </list>
     <ignored path="HKN-ASME-Curiosity-Jr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +25,8 @@
             <file leaf-file-name="arms_module.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="-2.4837663">
-                    <caret line="27" column="14" selection-start-line="26" selection-start-column="16" selection-end-line="27" selection-end-column="14" />
+                  <state vertical-scroll-proportion="-4.305195">
+                    <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
                     <folding>
                       <element signature="e#23#46#0" expanded="true" />
                     </folding>
@@ -266,8 +265,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4837663">
-          <caret line="27" column="14" selection-start-line="26" selection-start-column="16" selection-end-line="27" selection-end-column="14" />
+        <state vertical-scroll-proportion="-4.305195">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
           <folding>
             <element signature="e#23#46#0" expanded="true" />
           </folding>
