@@ -56,8 +56,8 @@ xcenter = 0 #x-coordinate of the center of the camera
 jr = Rover(arm1,tracks)
 
 print("before Rover")
-jr.navigate(8,1)
-jr.lunge(8)
+jr.navigate(9,1)
+jr.lunge(6)
 #below is experimental code that will execute.
 '''
 while(start == 0):
