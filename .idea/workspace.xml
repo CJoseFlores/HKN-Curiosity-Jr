@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4251b47-8e25-4d5c-8c4c-aa9511d40986" name="Default" comment="" />
+    <list default="true" id="f4251b47-8e25-4d5c-8c4c-aa9511d40986" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CuriosityJrMain.py" afterPath="$PROJECT_DIR$/CuriosityJrMain.py" />
+    </list>
     <ignored path="HKN-ASME-Curiosity-Jr.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +25,8 @@
             <file leaf-file-name="arms_module.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.5519481">
-                    <caret line="180" column="31" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+                  <state vertical-scroll-proportion="-2.2380953">
+                    <caret line="188" column="57" selection-start-line="188" selection-start-column="57" selection-end-line="188" selection-end-column="57" />
                     <folding>
                       <element signature="e#23#46#0" expanded="true" />
                     </folding>
@@ -56,8 +58,8 @@
       <file leaf-file-name="CuriosityJrMain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CuriosityJrMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4722838">
-              <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.3968958">
+              <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -74,8 +76,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CamTracking/Tracking.py" />
-        <option value="$PROJECT_DIR$/CuriosityJrMain.py" />
         <option value="$PROJECT_DIR$/Arms/arms_module.py" />
+        <option value="$PROJECT_DIR$/CuriosityJrMain.py" />
       </list>
     </option>
   </component>
@@ -251,22 +253,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CuriosityJrMain.py">
+    <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4722838">
-          <caret line="62" column="18" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+        <state vertical-scroll-proportion="-2.2380953">
+          <caret line="188" column="57" selection-start-line="188" selection-start-column="57" selection-end-line="188" selection-end-column="57" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#23#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Arms/arms_module.py">
+    <entry file="file://$PROJECT_DIR$/CuriosityJrMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5519481">
-          <caret line="180" column="31" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.3968958">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
           <folding>
-            <element signature="e#23#46#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
