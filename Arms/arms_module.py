@@ -329,7 +329,9 @@ class Rover:
             self.center(color)
             value = irdist.get_distance2(4)
 
-            print(value)
+            print("new value is {}".format(value))
+            print("old value is {}".format(oldValue))
+            
             if abs(value - oldValue) < 10:
                 if(value < dist):
                     done = True
