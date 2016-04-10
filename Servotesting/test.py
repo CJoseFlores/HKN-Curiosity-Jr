@@ -1,3 +1,9 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+GPIO.GPIO.setwarnings(False)
+GPIO.setup(21, GPIO.OUT)
 #use PWM for duty cycles.
 #Slow/Speed motors increase or decrease the duty cycle
 
@@ -47,3 +53,19 @@
 
 #Keep in mind since we are using Software PWM, it's not super accurate. Use hardware implementation
 #for more accuracy you scrub.
+
+
+
+#Neutral at otpimal operation is .0015s, so at 50hz,
+p = GPIO.PWM(21,50)
+p.start(7.5)
+
+try:
+    while True:
+        p.ChangeDutyCycle(7.5) #Possible Neutral?
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    p.stop()
+
+    GPIO.cleanup()
