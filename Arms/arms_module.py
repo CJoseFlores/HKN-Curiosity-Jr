@@ -333,9 +333,10 @@ class Rover:
         return
 
     def navigate(self, dist, color):
-        self.__seek(color)
-        self.__center(color)
-        self.__fwd(dist, color)
+        print("here")
+        self.seek(color)
+        self.center(color)
+        self.fwd(dist, color)
         return
 
 
