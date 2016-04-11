@@ -82,26 +82,30 @@ class Servo:
         return
 
 class Arm:
-    __s1 = None  # abstract servos (1 is the lower one)
-    __s2 = None
+    __sArm = None  # abstract servos (1 is the lower one)
+    __sClaw = None
 
     def __init__(self, s1, s2):
-        self.__s1 = s1
-        self.__s2 = s2
+        self.__sArm = s1
+        self.__sClaw = s2
         self.defaultpos()
         return
 
     def defaultpos(self):
-        self.__s1.servoDefault()
-        self.__s2.servoDefault()
+        self.__sArm.servoDefault()
+        self.__sClaw.servoDefault()
         return
-
+    
+    def armUp(self):
+        self.__sArm.servoDefault()
+        return
+    
     def lungefwd(self):
-        self.__s1.servoMove(252) #change this value later
+        self.__sArm.servoMove(9.4) #change this value later
         return
 
     def grab(self):
-        self.__s2.servoMove(252)#change this value later
+        self.__sClaw.servoMove(7)#change this value later
         return
 
 class RWD_Tracks:
@@ -160,12 +164,16 @@ class Rover:
         self.__arm.defaultpos()
         return
 
-    def lunge(self,dist):
+    def lunge(self):
         self.__arm.lungefwd()
         return
-
-    def claw(self, action):
-        self.__arm.grab(action)
+    
+    def up(self):
+        self.__arm.armUp()
+        return
+    
+    def claw(self):
+        self.__arm.grab()
         return
 
     def seek(self, color):

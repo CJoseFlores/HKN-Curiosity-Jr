@@ -43,9 +43,10 @@ m4 = Motor(6,13)
 mL = Motor(22,27)     #Left Track
 mR = Motor(23,24)     #Right Track
 
-SClaw = Servo(4,50,7.5,0.3)
-#arm1 = Arm(m1,m2,m3,m4,25)
-#tracks = RWD_Tracks(mR,mL)
+SClaw = Servo(17,50,10,0.3) #7 is closed and 10 is opened
+SArm = Servo(4,50,8.8,0.3)
+arm1 = Arm(SArm,SClaw)
+tracks = RWD_Tracks(mR,mL)
 
 start = 0 #generic variable that will start the code.
 
@@ -54,14 +55,18 @@ c2 = 0 #""
 c3 = 0 #""
 xcenter = 0 #x-coordinate of the center of the camera
 
-#jr = Rover(arm1,tracks)
+jr = Rover(arm1,tracks)
 
-#jr.navigate(9,2)
+jr.navigate(9,1)
+jr.lunge();
+time.sleep(1)
+jr.claw()
+time.sleep(1)
+jr.up()
 
-
-SClaw.servoMove(10) #7 is closed and 10 is opened
-while(True):
-    pass
+#SArm.servoMove(9.4) #8.8 is Up and 9.4 is Down
+#while(True):
+#    pass
 '''
 print("before Rover")
 jr.navigate(9,1)
