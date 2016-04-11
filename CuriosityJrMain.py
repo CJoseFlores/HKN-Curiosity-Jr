@@ -55,16 +55,18 @@ xcenter = 0 #x-coordinate of the center of the camera
 
 jr = Rover(arm1,tracks)
 
+jr.navigate(9,2)
+'''
 print("before Rover")
 jr.navigate(9,1)
 jr.lunge(6)
 jr.claw(D)
 jr.default()
 #below is experimental code that will execute.
-'''
+
 while(start == 0):
     print("Waiting for the AGSE to tell the rover to begin")
-
+'''
 
 
 while(1):

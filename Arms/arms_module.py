@@ -146,7 +146,7 @@ class Rover:
     __arm = None
     __tracks = None
     __bluerange = (np.array([110, 50, 100]),np.array([130, 255, 255])) #lower, upper color boundaries, in RGB
-    __greenrange = (np.array([0,170,43]),np.array([17,255,77])) #dark green to light green
+    __greenrange = (np.array([24,166,173]),np.array([125,231,236])) #dark green to light green
     __redrange = (np.array([191, 0, 0]),np.array([255, 132, 9]))#dark red to light orange
 
     __colorList = {1:__bluerange,2:__greenrange,3:__redrange}
