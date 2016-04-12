@@ -43,8 +43,10 @@ m4 = Motor(6,13)
 mL = Motor(22,27)     #Left Track
 mR = Motor(23,24)     #Right Track
 
-SClaw = Servo(17,50,10,0.3) #7 is closed and 10 is opened
-SArm = Servo(4,50,8.8,0.3)
+#SClaw = Servo(17,50,10,0.3) #7 is closed and 10 is opened
+#SArm = Servo(4,50,8.8,0.3)
+SArm = 4;
+SClaw = 8;
 arm1 = Arm(SArm,SClaw)
 tracks = RWD_Tracks(mR,mL)
 
@@ -57,12 +59,15 @@ xcenter = 0 #x-coordinate of the center of the camera
 
 jr = Rover(arm1,tracks)
 
-jr.navigate(9,1)
+jr.navigate(9,2)
 jr.lunge();
-time.sleep(1)
-jr.claw()
-time.sleep(1)
-jr.up()
+#time.sleep(1)
+#jr.claw()
+#time.sleep(1)
+#jr.up()
+#jr.findRamp(2,3)
+#jr.navigate(9,3)
+
 
 #SArm.servoMove(9.4) #8.8 is Up and 9.4 is Down
 #while(True):

@@ -5,6 +5,7 @@ import time
 import mcp3008
 import irdist
 import Tracking
+import serial
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -84,28 +85,35 @@ class Servo:
 class Arm:
     __sArm = None  # abstract servos (1 is the lower one)
     __sClaw = None
+    __ser = None
 
     def __init__(self, s1, s2):
         self.__sArm = s1
         self.__sClaw = s2
-        self.defaultpos()
+        #GPIO.setup(self.__sArm,GPIO.OUT)
+        #GPIO.setup(self.__sClaw,GPIO.OUT)
+        self.__ser = serial.Serial('/dev/ttyACM0', 9600)
+        #self.defaultpos()
         return
 
     def defaultpos(self):
-        self.__sArm.servoDefault()
-        self.__sClaw.servoDefault()
+        #self.__sArm.servoDefault()
+        #self.__sClaw.servoDefault()
         return
     
     def armUp(self):
-        self.__sArm.servoDefault()
+        
+        #self.__sArm.servoDefault()
         return
     
     def lungefwd(self):
-        self.__sArm.servoMove(9.4) #change this value later
+        #self.__sArm.servoMove(9.5) #change this value later
+        #GPIO.output(self.__sArm,True)
+        self.__ser.write('l')
         return
 
     def grab(self):
-        self.__sClaw.servoMove(7)#change this value later
+        #self.__sClaw.servoMove(7)#change this value later
         return
 
 class RWD_Tracks:
@@ -195,7 +203,7 @@ class Rover:
             cvcondition = Tracking.track(colorSelection[0], colorSelection[1])
         self.__tracks.stoptracks()
         print("Found!!!")
-        return
+        return 
 
     def center(self, color):
         '''
@@ -246,6 +254,25 @@ class Rover:
                     done = True
                 oldValue = value
 
+        self.__tracks.stoptracks()
+        return
+    
+    def findRamp(self, colorToFollow, colorToStop):
+        glitchfilter = 0
+        #While the payload has not yet been detected
+        done = False
+        colorSelection = self.__colorList[colorToStop]
+
+        while not done:
+            self.__tracks.forward()
+            print("moving forward")
+            self.center(colorToFollow)
+
+            cvcondition = Tracking.track(colorSelection[0], colorSelection[1])
+            if(cvcondition != 0):
+                done = True
+
+            
         self.__tracks.stoptracks()
         return
 
