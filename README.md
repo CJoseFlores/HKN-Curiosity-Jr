@@ -1,6 +1,6 @@
 # HKN CuriosityJr Team
 
-##### Additional information and diagrams will be added later.
+###### Additional information and diagrams will be added later.
 
 ### Objectives:
 
