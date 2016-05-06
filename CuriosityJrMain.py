@@ -52,11 +52,6 @@ tracks = RWD_Tracks(mR,mL)
 
 start = 0 #generic variable that will start the code.
 
-c1 = 0 #generic condition for openCV Camera
-c2 = 0 #""
-c3 = 0 #""
-xcenter = 0 #x-coordinate of the center of the camera
-
 jr = Rover(arm1,tracks)
 
 jr.navigate(9,2)
@@ -67,39 +62,3 @@ jr.lunge();
 #jr.up()
 #jr.findRamp(2,3)
 #jr.navigate(9,3)
-
-
-#SArm.servoMove(9.4) #8.8 is Up and 9.4 is Down
-#while(True):
-#    pass
-'''
-print("before Rover")
-jr.navigate(9,1)
-jr.lunge(6)
-jr.claw(D)
-jr.default()
-#below is experimental code that will execute.
-
-while(start == 0):
-    print("Waiting for the AGSE to tell the rover to begin")
-'''
-
-'''
-while(1):
-    arm1.defaultconfig4()
-
-    while(c1 == 0): #Turn the rover right until object is in the camera
-        tracks.turnright()
-    tracks.stoptracks()
-###Center Calibration Fcn, will turn into a method or seperate function later.
-    if(c2 > xcenter): #If object is to the left of the camera center
-        while(c2 > xcenter): #Turn the rover until the object is centered on the camera frame
-            tracks.turnleft()
-        tracks.stoptracks()
-    else:
-        while(c2 < xcenter):
-            tracks.turnright()
-        tracks.stoptracks()
-###End Center Calibration Fcn
-    while(irdist.get_distance2(4)):#
-'''
