@@ -11,7 +11,7 @@ sys.path.append("Arms/")
 import mcp3008
 import irdist
 from arms_module import *
-sys.path.append("CamTracking/")
+#sys.path.append("CamTracking/")
 import Tracking
 #import cvDistance
 
@@ -37,13 +37,17 @@ baydist = 25252 #change this value after testing
 m1 = Motor(21,20)
 m2 = Motor(16,12)#
 m3 = Motor(26,19)
-m4 = Motor(13,6)
+m4 = Motor(6,13)
 #DOWN is close, UP is open
 #m1-m4 are motors for the arm
 mL = Motor(22,27)     #Left Track
 mR = Motor(23,24)     #Right Track
 
-arm1 = Arm(m1,m2,m3,m4,25)
+#SClaw = Servo(17,50,10,0.3) #7 is closed and 10 is opened
+#SArm = Servo(4,50,8.8,0.3)
+SArm = 4;
+SClaw = 8;
+arm1 = Arm(SArm,SClaw)
 tracks = RWD_Tracks(mR,mL)
 
 start = 0 #generic variable that will start the code.
@@ -53,15 +57,34 @@ c2 = 0 #""
 c3 = 0 #""
 xcenter = 0 #x-coordinate of the center of the camera
 
+jr = Rover(arm1,tracks)
+
+jr.navigate(9,2)
+jr.lunge();
+#time.sleep(1)
+#jr.claw()
+#time.sleep(1)
+#jr.up()
+#jr.findRamp(2,3)
+#jr.navigate(9,3)
 
 
-#below is experimental code that will execute.
+#SArm.servoMove(9.4) #8.8 is Up and 9.4 is Down
+#while(True):
+#    pass
 '''
+print("before Rover")
+jr.navigate(9,1)
+jr.lunge(6)
+jr.claw(D)
+jr.default()
+#below is experimental code that will execute.
+
 while(start == 0):
     print("Waiting for the AGSE to tell the rover to begin")
+'''
 
-
-
+'''
 while(1):
     arm1.defaultconfig4()
 
@@ -80,13 +103,3 @@ while(1):
 ###End Center Calibration Fcn
     while(irdist.get_distance2(4)):#
 '''
-
-
-
-
-
-
-
-
-
-
