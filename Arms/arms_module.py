@@ -175,14 +175,6 @@ class Rover:
     def lunge(self):
         self.__arm.lungefwd()
         return
-    
-    def up(self):
-        self.__arm.armUp()
-        return
-    
-    def claw(self):
-        self.__arm.grab()
-        return
 
     def seek(self, color):
         '''
@@ -276,20 +268,9 @@ class Rover:
         self.__tracks.stoptracks()
         return
 
-    def back(self): #Possibly not use this?
-        self.__tracks.reverse()
-        return
-
     def navigate(self, dist, color):
         print("here")
         self.seek(color)
         self.center(color)
         self.fwd(dist, color)
         return
-
-
-
-
-
-
-
