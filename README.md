@@ -1,48 +1,40 @@
 # HKN CuriosityJr Team
 
-# Note: This README is heavily outdated. The following is simply reference for the arm.
-### Main Branch
+##### Additional information and diagrams will be added later.
 
 ### Objectives:
 
-1. Move the arm in sync using:
+1. Spin the Rover until it finds the object in frame.
 
-  * Arm objects
-	
-  * Sensors
-	
-2. Create a "Default Position" 
+  * The mounted Microsoft camera will draw a circle around the payload, colored FIU Blue when it finds the object.
 
-  * This position will be used to calibrate the arm.
-	
-  * S1 and S2 will be used to tell the arm when to start/stop moving to return/exit the default position.
-	
-  * X and Y are distances that will be used to perform the above statement.
-	  
-  * The arm will return to the "Default Position" when powered on, and after picking up or dropping off the payload.
+2. Once it finds the object (colored FIU Blue), center the rover and move forward.
+
+  * The camera compares the x-coordinate of the center of the object's circle with the center of the camera frame. This allows the rover to move in the appropriate direction until both x-coordinates are equiavlent.
   
-  * The Default Position is depicted below:
+  * If the rover overshoots the position, the rover then slightly move in the other direction until it matches the exact value.
 
-![alt tag][defaultpos]
+3. As the rover moves forward, if it becomes off-center, recenter the rover as it moves. Once the rover is close enough to the object, have the rover stop.
 
-[defaultpos]: http://i.imgur.com/JYRuONC.jpg
+4. Have the rover pick up the object, and search for the payload ramp (ORANGE).
+  
+  * The Pi does not have PWM pins, so the servos do not function optimially.
+  
+  * As a remedy, we used an Arduino UNO to drive the servos. 
+  
+  * The Rasberry Pi communicates to the Arduino via Serial communication. The Pi checks the conditions necessary to move the arm, and then sends a single character to the Arduino. The Arduino reads the character and determines how it should move the arm.
+  
+  * Sending the character 'l' for example, will tell the Ardunio to move and grab the payload.
 
-* After the rover finds the object with the Object-Tracking camera, the arm will turn and pickup the payload, and return to the default position.
+5. Once the payload ramp is in the rover's frame, have the rover center itself and move towards it.
 
-  * Once it sees the payload, it will move motors 2 & 3 to get the arm close, and finally motor 5 to grab/release it, as depicted below:
-	
-	![alt tag](http://i.imgur.com/y6iTx2m.jpg)
+6. Have the rover continually move along the ramp until it sees the payload bay (GREEN)
 
-* Once next to the drop-off area, the arm will drop the payload, and return to the default position.
+7. Have the rover approach the payload bay, and drop the payload.
 
-------
-Note: The default position and lunge depicted above and below are outdated. We are using the same concept, except we are mounting s2 under s3 (on the bottom of the claw section). These are currently being coded as defaultconfig2 and lunge2.
-	
-### Objective Progress:
-* Motors move well individually, we are working on moving them in sync with the sensors
+8. Have the rover reverse and follow the center of the payload ramp until it reaches the bottom. 
 
-* Sensors are currently functional, but they give off strange distance readings. Currently working off those readings and will begin testing the arm movement in conjunction to it.
-
+9. Have the rover stop at the bottom.
 
 ### Materials needed:
 
