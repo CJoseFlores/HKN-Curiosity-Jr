@@ -10,6 +10,7 @@ import serial
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
+#Motor Class can be used for any motor function on the rasberry PI.
 class Motor:
     __upin = None
     __dpin = None
@@ -22,7 +23,7 @@ class Motor:
         GPIO.setup(upin, GPIO.OUT)
         GPIO.setup(dpin, GPIO.OUT)
         return
-
+	#tmove moves the motor in the specified direction for time t.
     def tmove(self, direction, t):
         if (direction == 1):
             GPIO.output(self.__upin, GPIO.HIGH)
@@ -37,6 +38,7 @@ class Motor:
         else:
             return
 
+	#move() moves the motor in the specified direction indefinitely.
     def move(self,direction):
         if (direction == 1):
             GPIO.output(self.__upin, GPIO.HIGH)
@@ -46,6 +48,7 @@ class Motor:
             GPIO.output(self.__upin, GPIO.LOW)
         else:
             return
+	#stop() stops all motion on the motor.
     def stop(self):
         GPIO.output(self.__upin, GPIO.LOW)
         GPIO.output(self.__dpin, GPIO.LOW)
