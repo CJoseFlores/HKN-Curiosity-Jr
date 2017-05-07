@@ -12,40 +12,29 @@ GPIO.setwarnings(False)
 
 #Motor Class can be used for any motor function on the rasberry PI.
 class Motor:
-    __upin = None
-    __dpin = None
-    __speed = None
-    __index = None
+    __upin
+    __dpin 
+    __speed
+    __index
 
     def __init__(self, upin, dpin):
         self.__upin = upin
         self.__dpin = dpin
+        self.__speed = None
+        self.__index= None
+
         GPIO.setup(upin, GPIO.OUT)
         GPIO.setup(dpin, GPIO.OUT)
         return
-	#tmove moves the motor in the specified direction for time t.
-    def tmove(self, direction, t):
-        if (direction == 1):
-            GPIO.output(self.__upin, GPIO.HIGH)
-            GPIO.output(self.__dpin, GPIO.LOW)
-            time.sleep(t)
-            self.stop()
-        elif(direction == 0):
-            GPIO.output(self.__dpin, GPIO.HIGH)
-            GPIO.output(self.__upin, GPIO.LOW)
-            time.sleep(t)
-            self.stop()
-        else:
-            return
-
+        
 	#move() moves the motor in the specified direction indefinitely.
     def move(self,direction):
         if (direction == 1):
             GPIO.output(self.__upin, GPIO.HIGH)
             GPIO.output(self.__dpin, GPIO.LOW)
         elif (direction == 0):
-            GPIO.output(self.__dpin, GPIO.HIGH)
             GPIO.output(self.__upin, GPIO.LOW)
+            GPIO.output(self.__dpin, GPIO.HIGH)
         else:
             return
 	#stop() stops all motion on the motor.

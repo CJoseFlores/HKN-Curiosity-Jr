@@ -14,10 +14,6 @@ Down = 0
 Right = Up
 Left = Down
 
-#Enums for fwd()
-payloaddist = 25252 #change this value after testing
-baydist = 25252 #change this value after testing
-
 #Motor(UpPin,DownPin). Below initializes motor objects
 m1 = Motor(21,20)
 m2 = Motor(16,12)#
@@ -42,3 +38,5 @@ jr.navigate(9,2)
 # Search for green.
 
 jr.lunge();
+
+GPIO.cleanup()
